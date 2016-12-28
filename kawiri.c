@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
 		int client_fd = accept(server_fd, (struct sockaddr *)NULL, NULL);
 
 		unsigned char buf[MAX_MESS_LENGTH];
-		bzero( buf, MAX_MESS_LENGTH);
+
 		int len = read(client_fd, buf, MAX_MESS_LENGTH);
 
 		uint32_t checksum = crc32(0, buf, len);
