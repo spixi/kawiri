@@ -48,7 +48,7 @@ void die_stderr() {
 }
 
 void die_syslog() {
-	syslog(LOG_ERR, strerror(errno));
+	syslog(LOG_ERR, "%s", strerror(errno));
 	exit(EXIT_FAILURE);
 }
 
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 	atexit(handle_exit);
 
 	if(argc != 2) {
-		fprintf(stderr, "Usage: APP_NAME [port_number]\n");
+		fprintf(stderr, "Usage: "APP_NAME" [port_number]\n");
 		exit(EXIT_FAILURE);
 	}
 
